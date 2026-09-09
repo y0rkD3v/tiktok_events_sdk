@@ -26,10 +26,10 @@ allprojects {
 apply(plugin = "com.android.library")
 apply(plugin = "com.github.ben-manes.versions")
 
-val agpVersion: String = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
-if (agpVersion.split(".")[0].toInt() < 9) {
+//val agpVersion: String = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+//if (agpVersion.split(".")[0].toInt() < 9) {
     apply(plugin = "kotlin-android")
-}
+//}
 
 configure<LibraryExtension> {
     namespace = "com.example.tiktok_events_sdk"

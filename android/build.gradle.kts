@@ -76,6 +76,10 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencies {
     "implementation"("com.github.tiktok:tiktok-business-android-sdk:1.6.1")
     "implementation"("androidx.lifecycle:lifecycle-process:2.10.0")
+    // Required at compile time so R8 can resolve classes referenced by the TikTok SDK's
+    // IAP module (V5_V8BillingProxy). Apps that don't use billing still work because this
+    // is compileOnly; apps that DO use billing will already have this on their classpath.
+    "compileOnly"("com.android.billingclient:billing:7.1.1")
     "testImplementation"("org.jetbrains.kotlin:kotlin-test")
     "testImplementation"("org.mockito:mockito-core:5.23.0")
 }
